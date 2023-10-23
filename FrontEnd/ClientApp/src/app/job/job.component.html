@@ -1,0 +1,10 @@
+<p *ngIf="!job?.id">Loading Job...</p>
+
+<h1>{{ job.flow.name }} </h1>
+
+<div class="step">
+  <div>{{ job.jobSteps[jobStepIndex].step.name }}</div> 
+  <app-evidence [evidence]="e" *ngFor="let e of job.jobSteps[jobStepIndex].evidence" (updated)="updateEvidence($event)"></app-evidence>
+</div>
+
+<button *ngFor="let transition of job.jobSteps[jobStepIndex].transitions" class="btn btn-primary" (click)="doTransition(transition)">{{ transition.name }}</button>

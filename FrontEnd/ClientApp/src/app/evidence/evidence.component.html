@@ -1,0 +1,12 @@
+<div *ngIf="evidence.evidenceType == 1">
+  <div>{{ evidence.name }}</div>
+  <div>
+    <input type="text" (keyup)="updateText($event)" />
+  </div>
+</div>
+<div *ngIf="evidence.evidenceType == 2">
+  <div>{{ evidence.name }}</div>
+  <div>
+    <input type="checkbox" (change)="updateCheckbox($event)" />
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<h1 id="tableLabel">Flows</h1>
+
+<p *ngIf="!flows?.length"><em>Loading...</em></p>
+
+<table class="table table-striped" aria-labelledby="tableLabel" *ngIf="flows.length">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flow of flows">
+      <td>{{ flow.id }}</td>
+      <td>{{ flow.name }}</td>
+      <td><a class="nav-link text-dark" [routerLink]="['/job', flow.id]">Execute</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1>Job History</h1>
+
+<table class="table table-striped" aria-labelledby="tableLabel" *ngIf="flows.length">
+  <thead>
+    <tr>
+      <th>Job Id</th>
+      <th>Flow Name</th>
+      <th>Completed On</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let job of jobHistory">
+      <td>{{ job.id }}</td>
+      <td>{{ job.flow.name }}</td>
+      <td>{{ job.completedOn }}</td>
+      <td><a class="nav-link text-dark" [routerLink]="['/job-history', job.id]">View History</a></td>
+    </tr>
+  </tbody>
+</table>

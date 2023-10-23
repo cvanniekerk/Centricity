@@ -1,0 +1,15 @@
+<h1 id="tableLabel">Job History</h1>
+
+<p *ngIf="!job?.id"><em>Loading...</em></p>
+
+<h2>Job Id: {{ job.id }} (Flow: {{ job.flow.name }})</h2>
+
+<div *ngFor="let jobStep of job.jobSteps" class="step">
+  <div>{{ jobStep.step.name }}</div>
+  <div *ngFor="let evidence of jobStep.evidence" class="evidence">
+    <div>{{ evidence.name }} : {{ evidence.value }}</div>
+  </div>
+</div>
+
+<button class="btn btn-primary" [routerLink]="['/flows']">Back</button>
+
